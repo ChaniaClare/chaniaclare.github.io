@@ -95,7 +95,7 @@
 </head>
 <body>
     <header>
-        <img class="profile-pic" src="your-profile-picture.jpg" alt="Your Name">
+        <img class="profile-pic" src="Chania Clare - Photo.jpg" alt="Your Name">
         <h1>Chania Clare</h1>
         <p>PhD Student | Computational Systems and Synthetic Biology</p>
     </header>
