@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
+    <title>Chania Clare</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
        
@@ -96,13 +96,13 @@
 </head>
 <body>
     <header>
-        <img class="profile-pic" src="your-profile-picture.jpg" alt="Your Name">
-        <h1>Your Name</h1>
-        <p>Graduate Student | Field of Study</p>
+        <img class="profile-pic" src="Chania Clare - photo.jpg" alt="Chania Clare">
+        <h1>Chania Clare</h1>
+        <p>PhD Student | Computational Systems and Synthetic Biology</p>
         <!-- Social Media Links -->
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/your-github-username" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/chania-clare/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ChaniaClare" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com/your-twitter-username" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
         <!-- CV Link -->
