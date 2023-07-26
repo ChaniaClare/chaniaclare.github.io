@@ -108,7 +108,7 @@
 </head>
 <body>
     <header>
-        <img class="profile-pic" src="Chania Clare - Photo.jpg" alt="Chania Clare">
+        <img class="profile-pic" src="Chania-Clare-photo.jpg" alt="Chania Clare">
         <h1>Chania Clare</h1>
         <p>PhD Student | Computational Systems and Synthetic Biology</p>
         <!-- Social Media Links -->
