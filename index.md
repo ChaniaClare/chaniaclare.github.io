@@ -125,32 +125,54 @@
         <p>
            I’m a PhD student on the London Interdisciplinary Doctoral Programme (LIDo), where my work looks into the role of bacterial microcompartments in community dynamics though computational and wetlab techniques. I completed my Bachelor’s and Master’s degrees at Imperial College London, where I investigated electrotropism in plants, engineering cyanobacteria to support crop growth, and circadian-dependent immunity in the malaria parasite. As part of my PhD I completed a rotation project with the London School of Hygiene and Tropical Medicine and the Francis Crick Institute to identify novel drug targets for malaria parasite invasion. I thrive on tackling complex challenges and finding innovative solutions through data-driven research and interdisciplinary approaches.
         </p>
+        
+        <section>
+    <h2>Education and Research</h2>
 
-        <h2>Education and Research</h2>
-        <p>
-            Education:
-            PhD, University College London (UCL)				        (2021 – present)
-            BBSRC Doctoral Training Partnership - London Interdisciplinary Doctoral Programme
-            Computational Systems and Synthetic Biology
-            - Thesis: ‘Understanding the Role of the eut BMC in Microbial Community Dynamics’
-            - Conducted 4-month research project at London School of Hygiene and Tropical Medicine and the Crick Institute identifying novel drug targets for malaria parasite invasion
-            
+    <h3>PhD, University College London (UCL) - BBSRC Doctoral Training Partnership</h3>
+    <p>
+        <em>2021 – Present</em>
+        <br>
+        Computational Systems and Synthetic Biology
+    </p>
+    <ul>
+        <li>Thesis: ‘Understanding the Role of the eut BMC in Microbial Community Dynamics’</li>
+        <li>Conducted a 4-month research project at the London School of Hygiene and Tropical Medicine and the Crick Institute, identifying novel drug targets for malaria parasite invasion</li>
+        <li>Routinely presented research to my research group, at internal events, and conferences</li>
+        <li>Completed SysMIC computational modelling course and gained training in data science and machine learning</li>
+        <li>Attended residential EMBL Data Carpentry course in Heidelberg to extend computational skills</li>
+        <li>Major techniques: molecular biology, mathematical modelling, coding (Python, R, MATLAB, LaTeX)</li>
+    </ul>
 
-            Master of Research, Imperial College London 				  (2018 - 19)
-            Molecular Plant and Microbial Sciences
-            - Grade: Distinction
-            - Initiated, designed and executed two 6-month research projects focusing on electrotropism in plant roots, and engineering cyanobacteria to produce a biofertilizer to support crop growth
+    <h3>Master of Research, Imperial College London</h3>
+    <p>
+        <em>2018 - 2019</em>
+        <br>
+        Molecular Plant and Microbial Sciences, MRes (Hons), Distinction
+    </p>
+    <ul>
+        <li>Chair of the Underwater Club, managing the administration and finances of an 80+ member society</li>
+        <li>Initiated, designed, and executed two 6-month research projects focusing on electrotropism in plant roots and engineering cyanobacteria to produce a biofertilizer to support crop growth</li>
+        <li>Supported the work of a start-up company, Bio-F Solutions, aiming to create a biofertilizer for sustainable agriculture</li>
+        <li>Organiser of MRes Plant Science Journal Club</li>
+        <li>Mentored and trained an undergraduate student in research skills and molecular biology techniques</li>
+        <li>Class representative, collating concerns from students and addressing them in staff meetings</li>
+    </ul>
 
-
-            Bachelor of Science, Imperial College London				  (2015 - 18)
-            Biology
-            - Grade: Upper Second Class (Hons)
-            - Key modules: Plant Biotechnology, Integrative Systems Biology, and Synthetic Biology
-            - Completed 3-month research project focusing on mosquito immune defense to the malaria parasite
-            - Undertook 4-week ecological expedition to rainforest in Guyana shield to collect data on selective-logging practices with severely limited resources
-            - Chair and equipment officer of the Underwater Club, organising stores, maintenance, and access of sensitive equipment
-            - Assistant SCUBA diving instructor, teaching 20 students in the classroom and underwater, gaining training in First-Aid, Rescue Management, and Oxygen Administration
-        </p>
+    <h3>Bachelor of Science, Imperial College London</h3>
+    <p>
+        <em>2015 - 2018</em>
+        <br>
+        Biology, BSc (Hons), Upper Second Clas
+    </p>
+    <ul>
+        <li>Key modules: Plant Biotechnology, Integrative Systems Biology, and Synthetic Biology</li>
+        <li>Completed a 3-month research project focusing on mosquito immune defense to the malaria parasite</li>
+        <li>Undertook a 4-week ecological expedition to the rainforest in Guyana shield to collect data on selective-logging practices with severely limited resources</li>
+        <li>Chair and equipment officer of the Underwater Club, organizing stores, maintenance, and access of sensitive equipment</li>
+        <li>Assistant SCUBA diving instructor, teaching 20 students in the classroom and underwater, gaining training in First-Aid, Rescue Management, and Oxygen Administration</li>
+    </ul>
+</section>
 
         <h2>Projects Showcase</h2>
         <p>
