@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -121,7 +120,7 @@
     </header>
 
     <section>
-        <h2>About Me</h2>
+    <h2>About Me</h2>
         <p>
            I’m a PhD student on the London Interdisciplinary Doctoral Programme (LIDo), where my work looks into the role of bacterial microcompartments in community dynamics though computational and wetlab techniques. I completed my Bachelor’s and Master’s degrees at Imperial College London, where I investigated electrotropism in plants, engineering cyanobacteria to support crop growth, and circadian-dependent immunity in the malaria parasite. As part of my PhD I completed a rotation project with the London School of Hygiene and Tropical Medicine and the Francis Crick Institute to identify novel drug targets for malaria parasite invasion. I thrive on tackling complex challenges and finding innovative solutions through data-driven research and interdisciplinary approaches.
         </p>
