@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chania Clare</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #ecf0f1;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #3498db;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-name {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-name h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            text-align: center;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .nav-menu li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .nav-menu i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            background: white;
+        }
+
+        .section {
+            padding: 3rem;
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Research Cards */
+        .research-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .research-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .research-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .research-meta span {
+            background: #ecf0f1;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #3498db, #9b59b6);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .timeline-date {
+            color: #9b59b6;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            color: #2c3e50;
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .timeline-org {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #3498db;
+            margin-right: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+
+            .social-links {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="profile-name">
+                <h1>Chania Clare</h1>
+            </div>
+            <div class="profile-title">
+                PhD Candidate<br>
+                Computational Systems Biology<br>
+                University College London
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="#about" class="nav-link"><i class="fas fa-user"></i>About</a></li>
+                    <li><a href="#research" class="nav-link"><i class="fas fa-microscope"></i>Research</a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i>Skills</a></li>
+                    <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i>Experience</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/chania-clare" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/your-handle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/your-username" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:chania.clare.21@ucl.ac.uk" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active hero">
+                <h1>Bridging Biology & Data Science</h1>
+                <p class="subtitle">PhD researcher specializing in computational systems biology, machine learning applications in microbiology, and biomedical data analysis</p>
+                <a href="#contact" class="cta-button nav-link">Get In Touch</a>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <p>I'm a final-year PhD candidate at University College London, specializing in computational systems and synthetic biology. My research focuses on understanding microbial community dynamics through mathematical modeling and machine learning approaches.</p>
+                
+                <p>With a unique combination of wet lab expertise and computational skills, I bridge the gap between biological discovery and data-driven insights. My experience spans from working with hazard level 2 & 3 bacteria to developing machine learning models for antimicrobial resistance prediction.</p>
+                
+                <p>I'm passionate about translating complex biological systems into actionable insights for healthcare and biotechnology applications. Currently seeking opportunities in biomedical data science where I can apply my interdisciplinary background to solve real-world problems.</p>
+
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>Machine learning applications in microbiology</li>
+                            <li>Mathematical modeling of biological systems</li>
+                            <li>Antimicrobial resistance prediction</li>
+                            <li>Microbial community dynamics</li>
+                            <li>Systems biology and synthetic biology</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Section -->
+            <section id="research" class="section">
+                <h2>Research & Projects</h2>
+                
+                <div class="research-grid">
+                    <div class="research-card">
+                        <div class="research-meta">
+                            <span>2021 - Present</span>
+                            <span>PhD Research</span>
+                        </div>
+                        <h3>Understanding the Role of the eut BMC in Microbial Community Dynamics</h3>
+                        <p>Investigating bacterial microcompartments using computational modeling and mathematical approaches to understand their role in microbial community interactions and metabolic processes.</p>
+                    </div>
+
+                    <div class="research-card">
+                        <div class="research-meta">
+                            <span>2023</span>
+                            <span>Industry Contract</span>
+                        </div>
+                        <h3>Machine Learning for Antimicrobial Resistance Prediction</h3>
+                        <p>Developed ML models at Helmholtz Munich (AIDOS lab) to predict antimicrobial resistance from patient samples, enabling faster diagnosis than traditional microbiological techniques.</p>
+                    </div>
+
+                    <div class="research-card">
+                        <div class="research-meta">
+                            <span>2021</span>
+                            <span>Collaborative Research</span>
+                        </div>
+                        <h3>Novel Drug Targets for Malaria Parasite Invasion</h3>
+                        <p>4-month project at London School of Hygiene and Tropical Medicine and Francis Crick Institute identifying potential therapeutic targets for malaria treatment.</p>
+                    </div>
+
+                    <div class="research-card">
+                        <div class="research-meta">
+                            <span>2018-19</span>
+                            <span>Master's Research</span>
+                        </div>
+                        <h3>Cyanobacteria Engineering for Biofertilizer Production</h3>
+                        <p>Engineered cyanobacteria to produce biofertilizers for sustainable agriculture, supporting startup Bio-F Solutions in developing eco-friendly nutrient solutions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h2>Technical Skills</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming & Data Science</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Statistical Modeling</span>
+                            <span class="skill-tag">LaTeX</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microscope"></i> Laboratory Techniques</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Molecular Biology</span>
+                            <span class="skill-tag">qRT-PCR</span>
+                            <span class="skill-tag">BASIC Assembly</span>
+                            <span class="skill-tag">Sterile Techniques</span>
+                            <span class="skill-tag">Bacterial Culture</span>
+                            <span class="skill-tag">TEM</span>
+                            <span class="skill-tag">Microinjection</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-project-diagram"></i> Computational Biology</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Mathematical Modeling</span>
+                            <span class="skill-tag">Systems Biology</span>
+                            <span class="skill-tag">Bioinformatics</span>
+                            <span class="skill-tag">Synthetic Biology</span>
+                            <span class="skill-tag">Network Analysis</span>
+                            <span class="skill-tag">Pathway Modeling</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-users"></i> Professional Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Teaching</span>
+                            <span class="skill-tag">Mentoring</span>
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Scientific Writing</span>
+                            <span class="skill-tag">Public Speaking</span>
+                            <span class="skill-tag">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2>Professional Experience</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - Present</div>
+                        <div class="timeline-title">PhD Researcher</div>
+                        <div class="timeline-org">University College London</div>
+                        <p>BBSRC Doctoral Training Partnership studying computational systems and synthetic biology. Specialized in mathematical modeling of microbial communities with focus on bacterial microcompartments.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-title">Visiting Researcher</div>
+                        <div class="timeline-org">Helmholtz Munich - Institute of AI for Health</div>
+                        <p>3-month industry contract developing machine learning approaches for rapid antimicrobial resistance prediction from patient samples.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - Present</div>
+                        <div class="timeline-title">Teaching & Tutoring</div>
+                        <div class="timeline-org">Various London Institutions</div>
+                        <p>Teaching assistant for Advanced Statistics and Machine Learning module. GCSE Physics teacher at Hampstead Fine Arts College. Private tutoring in sciences for ages 3-17.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <div class="timeline-title">Staffing Administrator</div>
+                        <div class="timeline-org">Royal Cornwall Hospital Trust, NHS</div>
+                        <p>Database management, confidential reporting, and emergency personnel coordination. Training in safeguarding and data protection.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2018 - 2019</div>
+                        <div class="timeline-title">Master of Research</div>
+                        <div class="timeline-org">Imperial College London</div>
+                        <p>Distinction in Molecular Plant and Microbial Sciences. Research projects on electrotropism and cyanobacteria engineering for biofertilizer production.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2>Get In Touch</h2>
+                <p>I'm actively seeking opportunities in biomedical data science and would love to discuss how my unique background can contribute to your team.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:chania.clare.21@ucl.ac.uk">chania.clare.21@ucl.ac.uk</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +44 7710 549061
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong><br>
+                            London, UK
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <strong>LinkedIn</strong><br>
+                            <a href="https://linkedin.com/in/chania-clare">linkedin.com/in/chania-clare</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and sections
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for CTA button
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    document.querySelector('a[href="#contact"]').classList.add('active');
+                    document.getElementById('contact').classList.add('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
