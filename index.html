@@ -23,7 +23,7 @@
             font-family: 'Playfair Display', 'Source Serif Pro', 'Georgia', serif;
             line-height: 1.6;
             color: #333;
-            background: white !important;
+            background: white;
             min-height: 100vh;
             margin: 0;
             padding: 0;
@@ -39,7 +39,7 @@
         /* Sidebar */
         .sidebar {
             width: 300px;
-            background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(180deg, #5dade2 0%, #7fb3d3 100%);
             color: white;
             padding: 2rem;
             position: relative;
@@ -47,17 +47,17 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 220px;
+            height: 280px;
+            border-radius: 12px;
             background: #ecf0f1;
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 4px solid rgba(255, 255, 255, 0.2);
             overflow: hidden;
             position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .profile-img img {
@@ -70,8 +70,8 @@
         }
 
         .profile-img i {
-            font-size: 3rem;
-            color: #3498db;
+            font-size: 4rem;
+            color: #5dade2;
             z-index: 1;
         }
 
@@ -179,7 +179,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #3498db, #9b59b6);
+            background: linear-gradient(90deg, #5dade2, #7fb3d3);
             border-radius: 2px;
         }
 
@@ -205,7 +205,7 @@
 
         .cta-button {
             display: inline-block;
-            background: #3498db;
+            background: #5dade2;
             color: white;
             padding: 0.6rem 1.2rem;
             border-radius: 8px;
@@ -217,7 +217,7 @@
         }
 
         .cta-button:hover {
-            background: #2980b9;
+            background: #4a9ad1;
             transform: translateY(-1px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -243,7 +243,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #3498db, #9b59b6);
+            background: linear-gradient(90deg, #5dade2, #7fb3d3);
             border-radius: 2px;
         }
 
@@ -263,7 +263,7 @@
             background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 12px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #5dade2;
         }
 
         .about-highlights h3 {
@@ -285,9 +285,59 @@
 
         .about-highlights li::before {
             content: '▸';
-            color: #3498db;
+            color: #5dade2;
             position: absolute;
             left: 0;
+        }
+
+        /* Single Photo Layout */
+        .section-photo {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .photo-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f8f9fa;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .main-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .main-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder-main {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        .photo-placeholder-main i {
+            font-size: 3rem;
+            color: #5dade2;
+            margin-bottom: 1rem;
         }
 
         /* Skills Grid */
@@ -302,7 +352,7 @@
             background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 12px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #5dade2;
             transition: transform 0.3s ease;
         }
 
@@ -323,7 +373,7 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #3498db, #9b59b6);
+            background: linear-gradient(135deg, #5dade2, #7fb3d3);
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -342,7 +392,7 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #3498db;
+            border-left: 5px solid #5dade2;
             transition: all 0.3s ease;
         }
 
@@ -384,7 +434,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, #3498db, #9b59b6);
+            background: linear-gradient(180deg, #5dade2, #7fb3d3);
         }
 
         .timeline-item {
@@ -403,13 +453,13 @@
             top: 1.5rem;
             width: 12px;
             height: 12px;
-            background: #3498db;
+            background: #5dade2;
             border-radius: 50%;
             border: 3px solid white;
         }
 
         .timeline-date {
-            color: #9b59b6;
+            color: #7fb3d3;
             font-weight: 600;
             font-size: 0.9rem;
         }
@@ -426,97 +476,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Photo Gallery */
-        .photo-gallery {
-            margin-top: 2rem;
-        }
-
-        .photo-gallery h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 1rem;
-            font-size: 0.9rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        .placeholder-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .placeholder-item {
-            height: 200px;
-            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
-            border: 2px dashed #3498db;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #7f8c8d;
-            font-style: italic;
-            transition: all 0.3s ease;
-        }
-
-        .placeholder-item:hover {
-            background: linear-gradient(135deg, #d1ecf1, #e8f4f8);
-            transform: translateY(-2px);
-        }
-
-        .placeholder-item i {
-            font-size: 2rem;
-            color: #3498db;
-            margin-bottom: 0.5rem;
-        }
+        /* Contact */
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -534,7 +494,7 @@
 
         .contact-item i {
             font-size: 1.5rem;
-            color: #3498db;
+            color: #5dade2;
             margin-right: 1rem;
         }
 
@@ -547,6 +507,15 @@
             .sidebar {
                 width: 100%;
                 padding: 1rem;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 220px;
+            }
+
+            .profile-img i {
+                font-size: 3rem;
             }
 
             .section {
@@ -586,15 +555,6 @@
 
             .skills-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .profile-img {
-                width: 180px;
-                height: 220px;
-            }
-
-            .profile-img i {
-                font-size: 3rem;
             }
 
             .social-links {
@@ -664,7 +624,7 @@
                             <h3>Current Focus</h3>
                             <ul>
                                 <li>Machine learning in microbiology</li>
-                                <li>Mathematical modeling of biological systems</li>
+                                <li>Mathematical modelling of biological systems</li>
                                 <li>Antimicrobial resistance prediction</li>
                                 <li>Systems biology applications</li>
                                 <li>Biomedical data analysis</li>
@@ -679,34 +639,17 @@
                 <h2>About Me</h2>
                 <p>I'm a final-year PhD candidate at University College London, specializing in computational systems and synthetic biology. My research focuses on understanding microbial community dynamics through mathematical modeling and machine learning approaches.</p>
                 
-                <p>With a unique combination of wet lab expertise and computational skills, I bridge the gap between biological discovery and data-driven insights. My experience spans from working with hazard level 2 & 3 bacteria to developing machine learning models for antimicrobial resistance prediction.</p>
-                
-                <p>I'm passionate about translating complex biological systems into actionable insights for healthcare and biotechnology applications. Currently seeking opportunities in biomedical data science where I can apply my interdisciplinary background to solve real-world problems.</p>
-
-                <div class="professional-photos">
-                    <div class="photo-section">
-                        <div class="photo-item">
-                            <div class="photo-frame">
-                                <img src="research-photo1.jpg" alt="Laboratory Research" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><i class=\'fas fa-microscope\'></i>Laboratory Research</div>';">
-                            </div>
-                            <div class="photo-label">Laboratory Research</div>
-                        </div>
-                        
-                        <div class="photo-item">
-                            <div class="photo-frame">
-                                <img src="conference-photo.jpg" alt="Conference Presentation" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><i class=\'fas fa-chart-bar\'></i>Conference Presentation</div>';">
-                            </div>
-                            <div class="photo-label">Conference Presentation</div>
-                        </div>
-                        
-                        <div class="photo-item">
-                            <div class="photo-frame">
-                                <img src="collaboration-photo.jpg" alt="Research Collaboration" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><i class=\'fas fa-users\'></i>Research Collaboration</div>';">
-                            </div>
-                            <div class="photo-label">Research Collaboration</div>
+                <div class="section-photo">
+                    <div class="photo-container">
+                        <div class="main-photo">
+                            <img src="about-photo.jpg" alt="Professional Photo" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder-main\'><i class=\'fas fa-user-graduate\'></i>Professional Photo</div>';">
                         </div>
                     </div>
                 </div>
+                
+                <p>With a unique combination of wet lab expertise and computational skills, I bridge the gap between biological discovery and data-driven insights. My experience spans from working with hazard level 2 & 3 bacteria to developing machine learning models for antimicrobial resistance prediction.</p>
+                
+                <p>I'm passionate about translating complex biological systems into actionable insights for healthcare and biotechnology applications. Currently seeking opportunities in biomedical data science where I can apply my interdisciplinary background to solve real-world problems.</p>
 
                 <div class="research-grid" style="margin-top: 3rem;">
                     <div class="research-card">
@@ -725,6 +668,14 @@
             <!-- Research Section -->
             <section id="research" class="section">
                 <h2>Research & Projects</h2>
+                
+                <div class="section-photo">
+                    <div class="photo-container">
+                        <div class="main-photo">
+                            <img src="research-photo.jpg" alt="Research Laboratory" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder-main\'><i class=\'fas fa-microscope\'></i>Research Environment</div>';">
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="research-grid">
                     <div class="research-card">
