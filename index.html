@@ -359,7 +359,7 @@
             clear: both;
         }
 
-        /* Updated Research Tiles - Now with image above text */
+        /* Updated Research Tiles - Square images with overlay functionality */
         .research-tiles {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -375,6 +375,7 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .research-tile:hover {
@@ -384,7 +385,8 @@
 
         .tile-image {
             width: 100%;
-            height: 200px;
+            height: 0;
+            padding-bottom: 100%; /* Makes it square (1:1 aspect ratio) */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -445,11 +447,100 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             align-self: flex-start;
+            cursor: pointer;
         }
 
         .tile-link:hover {
             background: #4a9ad1;
             transform: translateY(-1px);
+        }
+
+        /* Project Detail Overlay */
+        .project-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .overlay-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .overlay-close:hover {
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .overlay-header {
+            margin-bottom: 1.5rem;
+            padding-right: 2rem;
+        }
+
+        .overlay-header h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay-date {
+            color: #7fb3d3;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .overlay-body p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .overlay-body h4 {
+            color: #2c3e50;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .overlay-body ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .overlay-body ul li {
+            margin-bottom: 0.3rem;
+            color: #555;
         }
 
         /* Tile background images - images located in thumbnails subfolder */
@@ -487,22 +578,6 @@
 
         .tile-mosquito {
             background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('thumbnails/mosquito-defence.jpg');
-        }
-
-        /* Fallback for missing images */
-        .tile-image-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .tile-image-placeholder i {
-            font-size: 3rem;
-            color: #5dade2;
         }
 
         /* Skills Grid */
@@ -715,6 +790,15 @@
                 padding: 0.3rem 0.6rem;
             }
 
+            .overlay-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .overlay-header {
+                padding-right: 1rem;
+            }
+
             .social-links {
                 margin-top: 1rem;
             }
@@ -865,7 +949,7 @@
                             <div class="tile-date">Published 2024</div>
                             <div class="tile-title">A bacteriocin expression platform for targeting pathogenic bacterial species</div>
                             <div class="tile-description">Co-author publication in Nature Communications developing a modular bacteriocin secretion platform for targeted antimicrobial therapy against antibiotic-resistant pathogens.</div>
-                            <a href="https://www.nature.com/articles/s41467-024-50591-8" class="tile-link" target="_blank">View in Nature</a>
+                            <a href="https://www.nature.com/articles/s41467-024-50591-8" class="tile-link" target="_blank">Read Paper</a>
                         </div>
                     </div>
 
@@ -889,7 +973,7 @@
                             <div class="tile-date">Aug 2022 - Present</div>
                             <div class="tile-title">Understanding the Role of the eut BMC in Microbial Community Dynamics</div>
                             <div class="tile-description">PhD project in the Chris Barnes lab (Computational Systems and Synthetic Biology) investigating bacterial microcompartments using computational modelling approaches.</div>
-                            <a href="#" class="tile-link" onclick="return false;">Learn More</a>
+                            <a class="tile-link learn-more-btn" data-project="phd-project">Learn More</a>
                         </div>
                     </div>
 
@@ -901,7 +985,7 @@
                             <div class="tile-date">Jul 2023 - Sep 2023</div>
                             <div class="tile-title">Machine Learning for Antimicrobial Resistance Prediction</div>
                             <div class="tile-description">Visiting researcher with Bastian Rieck in AIDOS group applying ML techniques to patient MALDI-TOF samples to predict antimicrobial resistance faster than standard microbiological techniques.</div>
-                            <a href="#" class="tile-link" onclick="return false;">View Project</a>
+                            <a class="tile-link learn-more-btn" data-project="helmholtz">Learn More</a>
                         </div>
                     </div>
 
@@ -913,7 +997,7 @@
                             <div class="tile-date">Mar 2022 - Jun 2022</div>
                             <div class="tile-title">Functional analysis of cyclic AMP signalling effectors in malaria parasite erythrocyte invasion</div>
                             <div class="tile-description">PhD placement in the David Baker lab at London School of Hygiene and Tropical Medicine and Mike Blackman lab at the Francis Crick Institute.</div>
-                            <a href="#" class="tile-link" onclick="return false;">Learn More</a>
+                            <a class="tile-link learn-more-btn" data-project="malaria-phd">Learn More</a>
                         </div>
                     </div>
 
@@ -925,7 +1009,7 @@
                             <div class="tile-date">Apr 2019 - Sep 2019</div>
                             <div class="tile-title">Synthetic orthologous new-to-nature N-exchange for engineered competition in the soil</div>
                             <div class="tile-description">Masters research project in the Patrik Jones lab at Imperial College London developing synthetic biology approaches for soil microbiome engineering.</div>
-                            <a href="#" class="tile-link" onclick="return false;">View Details</a>
+                            <a class="tile-link learn-more-btn" data-project="soil-engineering">Learn More</a>
                         </div>
                     </div>
 
@@ -937,7 +1021,7 @@
                             <div class="tile-date">Oct 2018 - Mar 2019</div>
                             <div class="tile-title">Mechanisms of Root Electrotropism</div>
                             <div class="tile-description">Masters research project in the Giovanni Sena lab at Imperial College London investigating electrical signal responses in plant root systems.</div>
-                            <a href="#" class="tile-link" onclick="return false;">Read More</a>
+                            <a class="tile-link learn-more-btn" data-project="electrotropism">Learn More</a>
                         </div>
                     </div>
 
@@ -949,7 +1033,7 @@
                             <div class="tile-date">Feb 2018 - Jun 2018</div>
                             <div class="tile-title">Characterisation of Anopheles Gambiae NF-Kappa Pathways in Circadian Rhythm Dependent Defence Against Malaria Parasites</div>
                             <div class="tile-description">Undergraduate research project in the George Christophides lab at Imperial College London studying mosquito immune defence mechanisms.</div>
-                            <a href="#" class="tile-link" onclick="return false;">Learn More</a>
+                            <a class="tile-link learn-more-btn" data-project="mosquito">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1093,6 +1177,19 @@
         </div>
     </div>
 
+    <!-- Project Detail Overlay -->
+    <div id="project-overlay" class="project-overlay">
+        <div class="overlay-content">
+            <button class="overlay-close" onclick="closeProjectOverlay()">&times;</button>
+            <div class="overlay-header">
+                <h3 id="overlay-title"></h3>
+                <div class="overlay-date" id="overlay-date"></div>
+            </div>
+            <div class="overlay-body" id="overlay-body">
+            </div>
+        </div>
+    </div>
+
     <script>
         // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1131,6 +1228,201 @@
                     document.querySelector('a[href="#contact"]').classList.add('active');
                     document.getElementById('contact').classList.add('active');
                 });
+            }
+
+            // Learn More button functionality
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const projectId = this.getAttribute('data-project');
+                    showProjectDetails(projectId);
+                });
+            });
+        });
+
+        // Project details data
+        const projectDetails = {
+            'phd-project': {
+                title: 'Understanding the Role of the eut BMC in Microbial Community Dynamics',
+                date: 'Aug 2022 - Present',
+                content: `
+                    <p>My current PhD research focuses on bacterial microcompartments (BMCs), specifically the ethanolamine utilisation (eut) BMC, and their role in microbial community dynamics. This interdisciplinary project combines computational modelling with experimental microbiology.</p>
+                    
+                    <h4>Research Objectives</h4>
+                    <ul>
+                        <li>Investigate how eut BMCs influence competitive dynamics in mixed microbial communities</li>
+                        <li>Develop mathematical models to predict community composition changes over time</li>
+                        <li>Understand the metabolic advantages conferred by BMC-mediated ethanolamine utilisation</li>
+                        <li>Explore potential applications in microbiome engineering and synthetic biology</li>
+                    </ul>
+                    
+                    <h4>Methods & Approaches</h4>
+                    <p>I employ a combination of computational and experimental techniques including ordinary differential equation modelling, agent-based modelling, bacterial culture techniques, and quantitative PCR analysis. The work involves collaboration with multiple research groups and incorporates both theoretical predictions and experimental validation.</p>
+                    
+                    <h4>Impact & Applications</h4>
+                    <p>This research has implications for understanding gut microbiome dynamics, developing targeted probiotic therapies, and engineering microbial communities for biotechnological applications. The findings contribute to our broader understanding of how metabolic specialisation shapes microbial ecosystems.</p>
+                `
+            },
+            'helmholtz': {
+                title: 'Machine Learning for Antimicrobial Resistance Prediction',
+                date: 'Jul 2023 - Sep 2023',
+                content: `
+                    <p>During my visiting researcher position at Helmholtz Munich, I worked with the AIDOS (AI-based Diagnostics in Oncology and Sepsis) group under Dr. Bastian Rieck to develop machine learning approaches for rapid antimicrobial resistance prediction.</p>
+                    
+                    <h4>Project Overview</h4>
+                    <p>The project aimed to predict antimicrobial resistance patterns from MALDI-TOF mass spectrometry data of patient samples, potentially reducing diagnosis time from days to hours and improving patient outcomes in critical care settings.</p>
+                    
+                    <h4>Technical Approach</h4>
+                    <ul>
+                        <li>Applied advanced machine learning algorithms to high-dimensional mass spectrometry data</li>
+                        <li>Developed feature extraction and selection methods for spectral data</li>
+                        <li>Implemented cross-validation strategies to ensure model robustness</li>
+                        <li>Collaborated with clinical microbiology teams to validate predictions against standard testing methods</li>
+                    </ul>
+                    
+                    <h4>Key Achievements</h4>
+                    <p>Successfully demonstrated proof-of-concept for rapid resistance prediction with promising accuracy rates. The work contributed to ongoing efforts to integrate AI-based diagnostics into clinical microbiology workflows, with potential applications in personalised antibiotic therapy.</p>
+                    
+                    <h4>Skills Developed</h4>
+                    <p>Enhanced expertise in machine learning applications for healthcare, mass spectrometry data analysis, and interdisciplinary collaboration between computer science and clinical microbiology teams.</p>
+                `
+            },
+            'malaria-phd': {
+                title: 'Functional analysis of cyclic AMP signalling effectors in malaria parasite erythrocyte invasion',
+                date: 'Mar 2022 - Jun 2022',
+                content: `
+                    <p>This PhD placement involved collaborative research between the London School of Hygiene and Tropical Medicine (David Baker lab) and the Francis Crick Institute (Mike Blackman lab), focusing on understanding molecular mechanisms of malaria parasite invasion.</p>
+                    
+                    <h4>Research Focus</h4>
+                    <p>The project investigated how cyclic adenosine monophosphate (cAMP) signalling pathways regulate the invasion of red blood cells by Plasmodium falciparum parasites, a critical step in malaria pathogenesis.</p>
+                    
+                    <h4>Experimental Approaches</h4>
+                    <ul>
+                        <li>Molecular cloning and protein expression of cAMP signalling effectors</li>
+                        <li>Functional assays to assess protein activity and localisation</li>
+                        <li>Microscopy techniques to visualise parasite invasion processes</li>
+                        <li>Biochemical assays to measure cAMP levels and signalling cascade activation</li>
+                    </ul>
+                    
+                    <h4>Key Findings</h4>
+                    <p>The work provided insights into how cAMP signalling coordinates the complex process of erythrocyte invasion, identifying potential targets for antimalarial drug development. The research contributed to our understanding of parasite biology and host-pathogen interactions.</p>
+                    
+                    <h4>Collaborative Environment</h4>
+                    <p>This placement provided valuable experience in collaborative research between leading institutions, working with world-class malaria researchers and accessing state-of-the-art facilities for parasitology research.</p>
+                `
+            },
+            'soil-engineering': {
+                title: 'Synthetic orthologous new-to-nature N-exchange for engineered competition in the soil',
+                date: 'Apr 2019 - Sep 2019',
+                content: `
+                    <p>My Masters research project in the Patrik Jones lab at Imperial College London focused on developing synthetic biology approaches for engineering soil microbiome communities to enhance agricultural sustainability.</p>
+                    
+                    <h4>Project Concept</h4>
+                    <p>The research aimed to create synthetic nitrogen exchange pathways in soil bacteria that could outcompete existing microorganisms while providing beneficial nitrogen fixation for plant growth, potentially reducing the need for chemical fertilisers.</p>
+                    
+                    <h4>Synthetic Biology Approach</h4>
+                    <ul>
+                        <li>Design of novel nitrogen metabolism pathways using orthogonal biochemistry</li>
+                        <li>Construction of synthetic gene circuits for controlled nitrogen fixation and release</li>
+                        <li>Development of competitive advantages through engineered metabolic pathways</li>
+                        <li>Testing in controlled soil microcosm experiments</li>
+                    </ul>
+                    
+                    <h4>Technical Methods</h4>
+                    <p>The project involved advanced molecular cloning techniques, metabolic engineering, bacterial transformation, and quantitative analysis of nitrogen compounds in soil samples. I gained extensive experience with BASIC assembly methods and synthetic biology design principles.</p>
+                    
+                    <h4>Environmental Applications</h4>
+                    <p>This work contributed to the broader goal of developing sustainable agricultural practices through engineered soil microbiomes, with potential applications in reducing chemical fertiliser dependence and improving soil health.</p>
+                    
+                    <h4>Skills Acquired</h4>
+                    <p>Advanced synthetic biology techniques, environmental microbiology, metabolic pathway design, and quantitative soil chemistry analysis.</p>
+                `
+            },
+            'electrotropism': {
+                title: 'Mechanisms of Root Electrotropism',
+                date: 'Oct 2018 - Mar 2019',
+                content: `
+                    <p>This Masters research project in the Giovanni Sena lab at Imperial College London investigated how plant roots respond to electrical signals, a phenomenon known as electrotropism, with implications for understanding plant sensory mechanisms.</p>
+                    
+                    <h4>Research Background</h4>
+                    <p>Plant roots can sense and respond to various environmental stimuli, including electrical fields. Understanding these mechanisms could provide insights into plant adaptation strategies and potentially inform agricultural practices.</p>
+                    
+                    <h4>Experimental Design</h4>
+                    <ul>
+                        <li>Development of controlled electrical stimulation systems for plant root studies</li>
+                        <li>Time-lapse imaging to track root growth responses to electrical fields</li>
+                        <li>Molecular analysis of gene expression changes in response to electrical stimuli</li>
+                        <li>Quantitative analysis of root growth patterns and directional responses</li>
+                    </ul>
+                    
+                    <h4>Key Investigations</h4>
+                    <p>The research examined how electrical signals influence root growth direction, the molecular mechanisms underlying electrotropic responses, and the potential ecological significance of electrical signal perception in plants.</p>
+                    
+                    <h4>Technical Skills</h4>
+                    <p>Plant biology techniques, microscopy and imaging analysis, molecular biology methods for gene expression analysis, and quantitative data analysis for growth measurements.</p>
+                    
+                    <h4>Broader Implications</h4>
+                    <p>This work contributed to our understanding of plant sensory biology and could inform future research into plant-environment interactions and agricultural optimisation strategies.</p>
+                `
+            },
+            'mosquito': {
+                title: 'Characterisation of Anopheles Gambiae NF-Kappa Pathways in Circadian Rhythm Dependent Defence Against Malaria Parasites',
+                date: 'Feb 2018 - Jun 2018',
+                content: `
+                    <p>This undergraduate research project in the George Christophides lab at Imperial College London examined how circadian rhythms influence mosquito immune responses to malaria parasite infection, focusing on NF-κB signalling pathways.</p>
+                    
+                    <h4>Research Context</h4>
+                    <p>Understanding how mosquito immune systems respond to malaria parasites is crucial for developing vector control strategies. The project explored how daily rhythms affect the mosquito's ability to defend against Plasmodium infection.</p>
+                    
+                    <h4>Experimental Approaches</h4>
+                    <ul>
+                        <li>Mosquito rearing and maintenance under controlled circadian conditions</li>
+                        <li>Parasite infection experiments at different times of day</li>
+                        <li>Gene expression analysis of NF-κB pathway components</li>
+                        <li>Immunofluorescence microscopy to visualise immune responses</li>
+                        <li>Quantitative analysis of infection outcomes relative to circadian timing</li>
+                    </ul>
+                    
+                    <h4>Key Findings</h4>
+                    <p>The research revealed that mosquito immune responses to malaria parasites vary significantly depending on the time of day, with NF-κB signalling pathways showing circadian regulation that influences infection outcomes.</p>
+                    
+                    <h4>Techniques Mastered</h4>
+                    <p>Insect biology techniques, parasite handling and infection procedures, molecular biology methods, microscopy and imaging, and statistical analysis of biological data.</p>
+                    
+                    <h4>Public Health Relevance</h4>
+                    <p>This work contributed to understanding vector-parasite interactions and could inform strategies for malaria vector control by identifying optimal timing for intervention strategies.</p>
+                `
+            }
+        };
+
+        function showProjectDetails(projectId) {
+            const project = projectDetails[projectId];
+            if (!project) return;
+            
+            document.getElementById('overlay-title').textContent = project.title;
+            document.getElementById('overlay-date').textContent = project.date;
+            document.getElementById('overlay-body').innerHTML = project.content;
+            document.getElementById('project-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectOverlay() {
+            document.getElementById('project-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close overlay when clicking outside content
+        document.getElementById('project-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectOverlay();
+            }
+        });
+
+        // Close overlay with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectOverlay();
             }
         });
     </script>
