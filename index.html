@@ -359,6 +359,180 @@
             clear: both;
         }
 
+        /* Interactive Research Tiles */
+        .research-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .research-tile {
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .research-tile:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .tile-background {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.4s ease;
+        }
+
+        .research-tile:hover .tile-background {
+            transform: scale(1.05);
+        }
+
+        .tile-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(93, 173, 226, 0.9), rgba(127, 179, 211, 0.9));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .research-tile:hover .tile-overlay {
+            opacity: 1;
+        }
+
+        .tile-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .research-tile:hover .tile-date {
+            transform: translateY(0);
+        }
+
+        .tile-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.2s;
+        }
+
+        .research-tile:hover .tile-title {
+            transform: translateY(0);
+        }
+
+        .tile-description {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.3s;
+        }
+
+        .research-tile:hover .tile-description {
+            transform: translateY(0);
+        }
+
+        .tile-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.4s, background 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .research-tile:hover .tile-link {
+            transform: translateY(0);
+        }
+
+        .tile-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .tile-corner-info {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .research-tile:hover .tile-corner-info {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        /* Tile background images - replace these URLs with your actual research images */
+        .tile-microcompartment {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('microcompartment-paper.jpg');
+        }
+
+        .tile-bacteriocin {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('bacteriocin-paper.jpg');
+        }
+
+        .tile-mimic {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('mimic-package.jpg');
+        }
+
+        .tile-phd-project {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('phd-research.jpg');
+        }
+
+        .tile-helmholtz {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('ml-antimicrobial.jpg');
+        }
+
+        .tile-malaria-phd {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('malaria-research.jpg');
+        }
+
+        .tile-soil-engineering {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('soil-engineering.jpg');
+        }
+
+        .tile-electrotropism {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('root-electrotropism.jpg');
+        }
+
+        .tile-mosquito {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('mosquito-defence.jpg');
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
@@ -397,46 +571,6 @@
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.85rem;
-        }
-
-        /* Research Cards */
-        .research-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .research-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #5dade2;
-            transition: all 0.3s ease;
-        }
-
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .research-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .research-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-
-        .research-meta span {
-            background: #ecf0f1;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
         }
 
         /* Timeline */
@@ -590,6 +724,29 @@
                 grid-template-columns: 1fr;
             }
 
+            .research-tiles {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .research-tile {
+                height: 280px;
+            }
+
+            .tile-title {
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+
+            .tile-description {
+                font-size: 0.85rem;
+            }
+
+            .tile-corner-info {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem;
+            }
+
             .social-links {
                 margin-top: 1rem;
             }
@@ -601,7 +758,7 @@
         <div class="sidebar">
             <div class="profile-img">
                 <i class="fas fa-user"></i>
-                <img src="https://chaniaclare.github.io/CC-profile-photo2.jpg" alt="Chania Clare" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none';">
+                <img src="CC-profile-photo2.jpg" alt="Chania Clare" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none';">
             </div>
             
             <div class="sidebar-content">
@@ -719,41 +876,104 @@
                     <p>My research combines computational modelling with experimental microbiology to understand complex biological systems and their applications in healthcare.</p>
                 </div>
                 
-                <div class="research-grid">
-                    <div class="research-card">
-                        <div class="research-meta">
-                            <span>2021 - Present</span>
-                            <span>PhD Research</span>
+                <div class="research-tiles">
+                    <div class="research-tile tile-microcompartment" onclick="window.open('https://journals.asm.org/doi/full/10.1128/jb.00269-24', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">UCL • 2024</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Published 2024</div>
+                            <div class="tile-title">Bacterial microcompartment utilisation in the human commensal Escherichia coli Nissle 1917</div>
+                            <div class="tile-description">First author publication in Journal of Bacteriology demonstrating ethanolamine utilisation and eut BMC formation in the probiotic strain E. coli Nissle 1917.</div>
+                            <a href="https://journals.asm.org/doi/full/10.1128/jb.00269-24" class="tile-link" onclick="event.stopPropagation();">Read Paper</a>
                         </div>
-                        <h3>Understanding the Role of the eut BMC in Microbial Community Dynamics</h3>
-                        <p>Investigating bacterial microcompartments using computational modelling and mathematical approaches to understand their role in microbial community interactions and metabolic processes.</p>
                     </div>
 
-                    <div class="research-card">
-                        <div class="research-meta">
-                            <span>2023</span>
-                            <span>Industry Contract</span>
+                    <div class="research-tile tile-bacteriocin" onclick="window.open('https://www.nature.com/articles/s41467-024-50591-8', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">UCL • 2024</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Published 2024</div>
+                            <div class="tile-title">A bacteriocin expression platform for targeting pathogenic bacterial species</div>
+                            <div class="tile-description">Co-author publication in Nature Communications developing a modular bacteriocin secretion platform for targeted antimicrobial therapy against antibiotic-resistant pathogens.</div>
+                            <a href="https://www.nature.com/articles/s41467-024-50591-8" class="tile-link" onclick="event.stopPropagation();">View in Nature</a>
                         </div>
-                        <h3>Machine Learning for Antimicrobial Resistance Prediction</h3>
-                        <p>Developed ML models at Helmholtz Munich (AIDOS lab) to predict antimicrobial resistance from patient samples, enabling faster diagnosis than traditional microbiological techniques.</p>
                     </div>
 
-                    <div class="research-card">
-                        <div class="research-meta">
-                            <span>2021</span>
-                            <span>Collaborative Research</span>
+                    <div class="research-tile tile-mimic" onclick="window.open('https://academic.oup.com/bioinformatics/article/41/5/btaf174/8142424', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">UCL • 2025</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Published 2025</div>
+                            <div class="tile-title">MIMIC: a Python package for simulating, inferring, and predicting microbial community interactions</div>
+                            <div class="tile-description">Co-author publication in Bioinformatics presenting a comprehensive Python package for modelling microbial community dynamics using machine learning approaches.</div>
+                            <a href="https://academic.oup.com/bioinformatics/article/41/5/btaf174/8142424" class="tile-link" onclick="event.stopPropagation();">Read Paper</a>
                         </div>
-                        <h3>Novel Drug Targets for Malaria Parasite Invasion</h3>
-                        <p>4-month project at London School of Hygiene and Tropical Medicine and Francis Crick Institute identifying potential therapeutic targets for malaria treatment.</p>
                     </div>
 
-                    <div class="research-card">
-                        <div class="research-meta">
-                            <span>2018-19</span>
-                            <span>Master's Research</span>
+                    <div class="research-tile tile-phd-project" onclick="window.open('#', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">UCL • 2022-Present</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Aug 2022 - Present</div>
+                            <div class="tile-title">Understanding the Role of the eut BMC in Microbial Community Dynamics</div>
+                            <div class="tile-description">PhD project in the Chris Barnes lab (Computational Systems and Synthetic Biology) investigating bacterial microcompartments using computational modelling approaches.</div>
+                            <a href="#" class="tile-link" onclick="event.stopPropagation();">Learn More</a>
                         </div>
-                        <h3>Cyanobacteria Engineering for Biofertiliser Production</h3>
-                        <p>Engineered cyanobacteria to produce biofertilisers for sustainable agriculture, supporting startup Bio-F Solutions in developing eco-friendly nutrient solutions.</p>
+                    </div>
+
+                    <div class="research-tile tile-helmholtz" onclick="window.open('#', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">Helmholtz Munich • 2023</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Jul 2023 - Sep 2023</div>
+                            <div class="tile-title">Machine Learning for Antimicrobial Resistance Prediction</div>
+                            <div class="tile-description">Visiting researcher with Bastian Rieck in AIDOS group applying ML techniques to patient MALDI-TOF samples to predict antimicrobial resistance faster than standard microbiological techniques.</div>
+                            <a href="#" class="tile-link" onclick="event.stopPropagation();">View Project</a>
+                        </div>
+                    </div>
+
+                    <div class="research-tile tile-malaria-phd" onclick="window.open('#', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">LSHTM & Francis Crick • 2022</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Mar 2022 - Jun 2022</div>
+                            <div class="tile-title">Functional analysis of cyclic AMP signalling effectors in malaria parasite erythrocyte invasion</div>
+                            <div class="tile-description">PhD placement in the David Baker lab at London School of Hygiene and Tropical Medicine and Mike Blackman lab at the Francis Crick Institute.</div>
+                            <a href="#" class="tile-link" onclick="event.stopPropagation();">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="research-tile tile-soil-engineering" onclick="window.open('#', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">Imperial College • 2019</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Apr 2019 - Sep 2019</div>
+                            <div class="tile-title">Synthetic orthologous new-to-nature N-exchange for engineered competition in the soil</div>
+                            <div class="tile-description">Masters research project in the Patrik Jones lab at Imperial College London developing synthetic biology approaches for soil microbiome engineering.</div>
+                            <a href="#" class="tile-link" onclick="event.stopPropagation();">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="research-tile tile-electrotropism" onclick="window.open('#', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">Imperial College • 2018-19</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Oct 2018 - Mar 2019</div>
+                            <div class="tile-title">Mechanisms of Root Electrotropism</div>
+                            <div class="tile-description">Masters research project in the Giovanni Sena lab at Imperial College London investigating electrical signal responses in plant root systems.</div>
+                            <a href="#" class="tile-link" onclick="event.stopPropagation();">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="research-tile tile-mosquito" onclick="window.open('#', '_blank')">
+                        <div class="tile-background"></div>
+                        <div class="tile-corner-info">Imperial College • 2018</div>
+                        <div class="tile-overlay">
+                            <div class="tile-date">Feb 2018 - Jun 2018</div>
+                            <div class="tile-title">Characterisation of Anopheles Gambiae NF-Kappa Pathways in Circadian Rhythm Dependent Defence Against Malaria Parasites</div>
+                            <div class="tile-description">Undergraduate research project in the George Christophides lab at Imperial College London studying mosquito immune defence mechanisms.</div>
+                            <a href="#" class="tile-link" onclick="event.stopPropagation();">Learn More</a>
+                        </div>
                     </div>
                 </div>
             </section>
