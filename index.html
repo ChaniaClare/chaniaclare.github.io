@@ -36,28 +36,25 @@
             background: white;
         }
 
-        /* Sidebar */
+        /* Sidebar with edge-to-edge photo */
         .sidebar {
             width: 300px;
             background: linear-gradient(180deg, #5dade2 0%, #7fb3d3 100%);
             color: white;
-            padding: 2rem;
             position: relative;
             overflow-y: auto;
+            padding: 0;
         }
 
         .profile-img {
-            width: 100%;
+            width: 300px;
             height: 280px;
-            border-radius: 0;
             background: #ecf0f1;
-            margin: -2rem -2rem 1.5rem -2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .profile-img img {
@@ -77,6 +74,10 @@
 
         .profile-img img.loaded {
             z-index: 2;
+        }
+
+        .sidebar-content {
+            padding: 2rem;
         }
 
         .profile-name {
@@ -524,16 +525,15 @@
 
             .sidebar {
                 width: 100%;
-                padding: 0;
+            }
+
+            .profile-img {
+                width: 100%;
+                height: 220px;
             }
 
             .sidebar-content {
                 padding: 1rem;
-            }
-
-            .profile-img {
-                width: 180px;
-                height: 220px;
             }
 
             .profile-img i {
@@ -603,32 +603,35 @@
                 <i class="fas fa-user"></i>
                 <img src="https://chaniaclare.github.io/CC-profile-photo2.jpg" alt="Chania Clare" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none';">
             </div>
-            <div class="profile-name">
-                <h1>Chania Clare</h1>
-            </div>
-            <div class="profile-title">
-                PhD Candidate<br>
-                Computational Systems Biology<br>
-                University College London
-            </div>
             
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="#about" class="nav-link"><i class="fas fa-user"></i>About</a></li>
-                    <li><a href="#research" class="nav-link"><i class="fas fa-microscope"></i>Research</a></li>
-                    <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i>Skills</a></li>
-                    <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i>Experience</a></li>
-                    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
-                </ul>
-            </nav>
+            <div class="sidebar-content">
+                <div class="profile-name">
+                    <h1>Chania Clare</h1>
+                </div>
+                <div class="profile-title">
+                    PhD Candidate<br>
+                    Computational Systems Biology<br>
+                    University College London
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="#about" class="nav-link"><i class="fas fa-user"></i>About</a></li>
+                        <li><a href="#research" class="nav-link"><i class="fas fa-microscope"></i>Research</a></li>
+                        <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i>Skills</a></li>
+                        <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i>Experience</a></li>
+                        <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
+                    </ul>
+                </nav>
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/chania-clare/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/ChaniaNClare" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
-                <a href="https://scholar.google.com/citations?user=7hACT2oAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://github.com/ChaniaClare" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:chania.clare.21@ucl.ac.uk" title="Email"><i class="fas fa-envelope"></i></a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/chania-clare/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/ChaniaNClare" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+                    <a href="https://scholar.google.com/citations?user=7hACT2oAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://github.com/ChaniaClare" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:chania.clare.21@ucl.ac.uk" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
 
